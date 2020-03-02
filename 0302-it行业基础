@@ -73,7 +73,58 @@ tel:18028768679
 			mongodb   大数据、爬虫
 			redis     缓存、验证  新浪微博
 			cassandra facebook 
+3.搭建ecshop网店项目
+	a.b/s架构后端常见搭配
+		操作系统     web服务器   数据库服务器
+		win          iis        sqlserver
+		            apache      mysql
+		            tomcat      mysql/Oracle
+		linux       apache      mysql         (LAMP)
+					nginx       mysql         (LNMP)
+					tomcat      mysql/oracle
+	b.集成软件
+		xampp
+			x:任意操作系统
+			a:apache
+			m:mysql
+			p:php
+			p:perl
+		wamp
+			w:windows
+		phpstudy
+	c.phpstudy目录结构	
+		目录:文件夹
+		apache  web服务器目录
+			bin  可执行的应用程序
+			conf 存放配置文件
+				httpd.conf
+			logs 存放日志位置
+		mysql   数据库服务器目录
+			bin 可执行的应用程序
+			data 存放数据
+			lib  库文件存放位置
+			my.ini mysql的配置文件
+		WWW     项目所在目录
 
+	d.部署ecshop网店
+		d1.项目环境
+			开发语言：php
+			web服务器:apache
+			数据库服务器:mysql
+		d2.安装好并且启动phpstudy
+			测试浏览器中输入127.0.0.1或者localhost范文
+		d3.把ecshop压缩包解压到phpstudy的WWW文件夹中
+		d4.浏览器中输入127.0.0.1/ecshop，根据提示进行安装
+			注意数据库账号
+			数据库主机:localhost(电脑本机)
+			端口号:3306
+			用户名:root(默认管理员)
+			密码:root
+			数据库名:test
+		d5.访问
+			前台:127.0.0.1/ecshop
+			后台:127.0.0.1/ecshop/admin
+			
 
 
 
