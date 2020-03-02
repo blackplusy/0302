@@ -53,6 +53,27 @@ tel:18028768679
 		s:服务器
 			性能非常牛逼的电脑
 
+2.b/s架构的后端
+	a.操作系统
+	b.web服务器
+		提供网页服务
+		apache  不支持java
+		iis     微软 漏洞偏多 内存溢出、文件解析、上传
+		tomcat  apache 支持java
+		nginx   轻量级web服务器(反向代理、负载均衡)
+	c.数据库服务器
+		提供数据服务
+		关系型数据库
+			informix  IBM+HP  军、政、运、银  小机
+			db2       IBM     军、政、运、银  
+			oracle    甲骨文  中大型公司
+			mysql     甲骨文  互联网公司
+			sqlserver 微软    传统
+		非关系型数据库
+			mongodb   大数据、爬虫
+			redis     缓存、验证  新浪微博
+			cassandra facebook 
+
 
 
 
