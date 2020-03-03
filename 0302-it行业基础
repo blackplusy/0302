@@ -97,7 +97,7 @@ tel:18028768679
 		apache  web服务器目录
 			bin  可执行的应用程序
 			conf 存放配置文件
-				httpd.conf
+				httpd.conf apache的主配置文件
 			logs 存放日志位置
 		mysql   数据库服务器目录
 			bin 可执行的应用程序
