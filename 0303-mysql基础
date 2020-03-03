@@ -153,6 +153,76 @@ d.mysql入门
 
 			mysql官网-->documentation--search this menu(手册中搜索内容)--create table--FOREIGN KEY Constraints
 
+		f.练习
+		create table 同学(
+			学号  char(6) primary key,
+			姓名  char(20) not null,
+			性别  char(5) check(性别='男' or 性别='女'),
+			年龄  int not null,
+			民族  char(30) default '汉' not null,
+			身份证号 char(40) unique ,
+			宿舍号  char(6) references 宿舍(宿舍号)
+		);
+
+		create table 宿舍(
+			宿舍号 char(6) primary key,
+			宿舍电话 int check(宿舍电话>=6330000 and 宿舍电话<6339999)
+		);
+
+	5.数据的新增修改和删除
+		a.数据的新增
+			字符类型数据需要加单引号
+			日期类型数据需要加单引号
+			数字类型数据直接使用
+			列的数据类型必须和值的数据类型一致
+			列和值的位置必须要对应
+			a1.向表中所有列新增数据
+				语法:insert into 表 values(值1,值2....)
+				需求:向韩国表中新增数据，id为1，泡菜名字，labaicai,价格250，出厂日期 2000-01-01
+				insert into 韩国 values(1,'labaicai',250,'2000-01-01');
+
+			a2.向表中指定列新增数据
+				语法:insert into 表(列1,列2....) values(值1,值2......);
+				需求:向韩国表中新增数据，泡菜名字，'oba',价格 100
+				insert into 韩国(泡菜名称,泡菜价格) values('oba',100);
+
+		b.数据的修改
+			语法：update 表 set 列=值 where 条件;
+			where 条件如果增加，修改指定行的列，如果不加，修改的是列中所有值
+			需求:修改韩国表中名字是oba的售价为998
+			update 韩国 set 泡菜价格=998 where 泡菜名称='oba';
+			需求:修改韩国表中所有泡菜价格为0
+			update 韩国 set 泡菜价格=0 ;
+
+
+		c.数据的删除(不会删除表结构)
+			delete    可以删除指定数据,DML,删除数据可以找回
+			truncate  截断表，只能删除所有数据，DDL，数据删除无法找回
+			delete语法:
+			delete from 表 where 条件;
+			如果不加where 删除的是所有数据，如果增加where删除的是指定数据
+			需求:删除韩国表中名字是oba的所有数据
+			delete from 韩国 where 泡菜名称='oba';
+			需求:删除韩国表中所有数据
+			delete from 韩国;
+			truncate语法:
+			truncate table 表;
+			需求:删除韩国表中所有数据
+			truncate table 韩国;
+	6.SQL(结构化查询语言)的分类
+		DDL 数据库定义语言  create alter drop truncate
+		DML 数据库操作语言  insert update delete
+		DCL 数据库控制语言  grant  revoke
+		DQL 数据库查询语言  select
+
+
+
+
+
+
+
+
+
 
 管理mysql图形工具
 	mysql workbench （c/s）   :     https://dev.mysql.com/downloads/workbench/
@@ -182,8 +252,25 @@ workbech 	工作台
 id       	编码编号
 localhost 	本地主机
 host     	主机名
-Query       查询
+query       查询
 affected    生效
+documentation 文档、说明
+search      搜索
+reference   参考
+foreign     外国、外部
+key         钥匙，键
+constraints 约束
+alter       改变
+add         增加
+modify      修改
+drop        删除
+column      列
+primary     主要的
+unique      唯一
+check       检查
+default     默认
+
+
 
 
 win下面的命令
