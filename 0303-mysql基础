@@ -1,0 +1,98 @@
+1.测试课程内容
+a.IT基础
+	web基础
+	网络基础
+	数据库基础
+	操作系统基础
+	测试理论
+	项目
+b.自动化测试
+	python开发
+	selenium框架
+	自动化测试项目
+c.接口测试
+d.性能测试
+e.实习项目
+f.就业
+2.数据库基础
+a.什么是数据库
+	存储数据的软件
+b.常见的数据库软件
+	oracle
+	mysql
+	mongodb
+	redis
+c.mysql的安装
+	1.官网下载安装包进行安装
+		mysql的版本
+		企业版(付费)
+		社区版(免费)
+	2.使用集成软件进行安装
+		xampp
+		phpstudy
+d.mysql入门
+	1.服务和端口
+		mysql是c/s架构软件
+		客户端------服务端
+		mysql       mysqld
+		mysql的端口3306
+		查看mysqld进程
+			tasklist | find "mysqld"
+		查看mysql的端口
+			netstat -an | find "3306"
+	2.登陆mysql
+		a.登陆命令(必须在命令提示符中)
+			mysql
+				登陆本地(当前计算)数据库
+			mysql -u root -p
+				使用root用户登陆本地数据库(-u 后面跟用户 -p 输入密码)
+			mysql -u root -h 127.0.0.1 -p
+				使用root用户登陆IP为127.0.0.1的数据库(-h 目标主机的IP)
+			注意:
+				Access denied for user 'ODBC'@'localhost' 用户不允许登陆
+
+		b.设置环境变量
+			让系统可以找到目标文件夹中的命令文件
+			计算机--属性--高级--环境变量--系统变量--Path中添加
+			;mysql的bin文件夹的路径
+			--确定--确定--确定
+			注意：环境变量中各个变量之间通过;隔开，设置完环境变量后重启命令提示符才会生效
+			补充:
+			系统变量：系统中所有用户的设置
+			用户变量：当前用户的设置
+		c.直接进入到命令所在文件夹
+			进入到mysql的bin文件夹，地址栏中输入cmd
+	3.基础命令
+		数据库分为2部分，数据库数据，数据库软件
+		数据库由表组成
+		表是由数据组成
+		show databases;
+			查看当前数据库软件中所有数据库名字
+		select database();
+			查看当前数据库的名字
+			null代表当前没有选择数据库
+		use test;
+			数据库切换为test
+		show tables;
+			查看当前数据库中有哪些表
+		select * from ecs_goods;
+		select * from ecs_goods \G  行转列显示
+			查看ecs_goods表中所有数据
+
+
+
+
+
+
+
+
+
+
+show 展示
+database 数据库
+select   选择
+use      使用、切换
+table    桌子、表格
+from     从。。。。
+
+
