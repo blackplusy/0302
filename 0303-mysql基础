@@ -10,10 +10,7 @@ b.自动化测试
 	python开发
 	selenium框架
 	自动化测试项目
-c.接口测试
-d.性能测试
-e.实习项目
-f.就业
+
 2.数据库基础
 a.什么是数据库
 	存储数据的软件
@@ -41,6 +38,7 @@ d.mysql入门
 		查看mysql的端口
 			netstat -an | find "3306"
 	2.登陆mysql
+		mysql的管理员 root
 		a.登陆命令(必须在命令提示符中)
 			mysql
 				登陆本地(当前计算)数据库
@@ -60,9 +58,10 @@ d.mysql入门
 			补充:
 			系统变量：系统中所有用户的设置
 			用户变量：当前用户的设置
+
 		c.直接进入到命令所在文件夹
 			进入到mysql的bin文件夹，地址栏中输入cmd
-	3.基础命令
+	3.基础命令(登陆mysql之后使用)
 		数据库分为2部分，数据库数据，数据库软件
 		数据库由表组成
 		表是由数据组成
@@ -78,21 +77,67 @@ d.mysql入门
 		select * from ecs_goods;
 		select * from ecs_goods \G  行转列显示
 			查看ecs_goods表中所有数据
+	4.表(table)
+		a.数据类型
+			字符类型  'hello' '250'  char  varchar
+			数字类型  100 1.23       int
+			日期类型  1988-01-01     date
+		b.创建表结构
+			语法:create table 表名(
+					列  数据类型,
+					列  数据类型
+				);
+			需求:创建一个表格商品(goods),3个列,商品名称(gname) 字符类型，商品价格(price) 整型，出厂日期 (ddate) 日期类型
+			create table goods(
+				gname  char(20),
+				price  int,
+				ddate  date
+			);
+			创建表之前一定要选择一个数据库，否则会报错：No database selected(没有选择数据库)
+			如果出现Query OK, 0 rows affected，说明表格已经创建成功
+			补充:查看表结构
+			语法:desc 表名;
+			需求:查询goods的表结构
+			desc goods;
 
 
 
+管理mysql图形工具
+	mysql workbench （c/s）   :     https://dev.mysql.com/downloads/workbench/
+	SQLyog   小海豚   (c/s)
+	phpMyAdmin                      http://127.0.0.1/phpMyAdmin/  (不推荐)
+	dbeaver
+	toad
+	navicat
 
 
-
-
-
-
-
+英文单词
 show 展示
 database 数据库
 select   选择
 use      使用、切换
 table    桌子、表格
 from     从。。。。
+find     搜索
+char     字符
+int      整型
+date     日期
+create   创建
+describe  描述
+auto      自动
+increment 增长
 
 
+win下面的命令
+tasklist
+netstat
+mysql
+ping
+nslookup
+find
+
+mysql下面的命令
+show
+select 
+use
+create
