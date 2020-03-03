@@ -99,7 +99,59 @@ d.mysql入门
 			语法:desc 表名;
 			需求:查询goods的表结构
 			desc goods;
+		c.修改表结构
+			新增列
+			--向bank表中增加一个列，生日(birthday) 日期类型
+			alter table bank add birthday date;
+			修改列
+			--修改bank表中age列的数据类型为char(10)
+			alter table bank modify age char(10);
+			删除列
+			--删除bank表中birthday列
+			alter table bank drop column birthday;
+		d.删除表结构(删除表结构和数据)
+			语法:drop table 表名;
+			需求:删除goods表表结构
+			drop table goods;
+		e.约束
+			主键约束  列中的数据是唯一的，非空，每张表中只能有一个
+			唯一约束  列中的数据是唯一的，可以为空，作为主键约束的补充
+			非空约束  列中的数据不能为空
+			检查约束  列中的数据是否满足条件
+			外键约束  列中的数据依赖于另外一张表中列的数据(参考约束)
+			(默认值)  列中不添加数据时候默认的值
+			语法:
+			create table 表(
+				列 数据类型 primary key,
+				列 数据类型 unique，
+				列 数据类型 not null,
+				列 数据类型 check(条件1 and[or] 条件2),
+				列 数据类型 references 被参考表(被参考列),
+				列 数据类型 default 默认值
+			);
+			外键约束注意:
+			1.被参考表的被参考列一定是存在
+			2.参考列和被参考列的数据类型必须一致
+			3.被参考列一定是主键约束
+			创建客户表(customer),id 客户id 主键约束 数字类型，name 客户名字 字符类型
+			create table customer(
+				id int primary key,
+				name char(20)
+			);
+			创建订单表(order),id客户id 是客户表的外键，name 订单名字 字符类型
+			-----------------------------------
+			create table order(
+				id int references customer(id),
+				name char(20)
+			)
+			----------------------------------
+			create table order1(
+				name char(20),
+			  	cid int,
+				foreign key(cid) references customer(id)
+			);	
 
+			mysql官网-->documentation--search this menu(手册中搜索内容)--create table--FOREIGN KEY Constraints
 
 
 管理mysql图形工具
@@ -112,20 +164,26 @@ d.mysql入门
 
 
 英文单词
-show 展示
-database 数据库
-select   选择
-use      使用、切换
-table    桌子、表格
-from     从。。。。
-find     搜索
-char     字符
-int      整型
-date     日期
-create   创建
-describe  描述
-auto      自动
-increment 增长
+show 		展示
+database 	数据库
+select   	选择
+use      	使用、切换
+table    	桌子、表格
+from     	从哪里
+find     	搜索
+char     	字符
+int      	整型
+date     	日期
+create   	创建
+describe  	描述
+auto      	自动
+increment 	增长
+workbech 	工作台
+id       	编码编号
+localhost 	本地主机
+host     	主机名
+Query       查询
+affected    生效
 
 
 win下面的命令
@@ -141,3 +199,5 @@ show
 select 
 use
 create
+desc
+alter
