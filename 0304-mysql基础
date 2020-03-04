@@ -46,16 +46,25 @@ b.简单查询
 			查询ecs_goods表中本店售价范围1000和2000之间的所有信息
 			select  * from ecs_goods where shop_price>=1000 and shop_price<=2000;
 			select * from ecs_goods where shop_price between 1000 and 2000;
-			
-
-
-
-
-
 		4>空值
+			null，空值没有数据类型，没有任何值,不能用于比较和运算，查询时候使用is null或者is not null
+			查询ecs_goods表中suppliers_id为空的所有信息
+			select * from ecs_goods where suppliers_id is null;
 		5>模糊
+			当信息不完整时候，使用模糊查询，通常是和字符串一起使用
+			like   模糊查询关键字
+			__     一个字符
+			%      任意个字符
+			查询ecs_goods表中商品名称以诺基亚开头的所有信息
+			select * from ecs_goods where goods_name like '诺基亚%';
+			查询ecs_goods表中商品名称以6结尾所有信息
+			select * from ecs_goods where goods_name like '%6';
+			查询ecs_goods表中商品名称是6个字符的所有信息
+			select * from ecs_goods where goods_name like '______';
 		6>in
-
+			在...里面,或者的关系
+			查询ecs_goods表中商品名称为KD876或者商品名称为诺基亚的所有信息
+			select * from ecs_goods where goods_name in ('KD876','诺基亚');
 
 
 
