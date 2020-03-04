@@ -1,0 +1,67 @@
+1.mysql的简单查询
+a.mysql的查询分类
+	简单查询(一张表)
+	多表查询(多张表)
+	分组查询(归类)
+	子查询(一条SQL语句的执行依赖于另外一条SQL语句的执行)
+b.简单查询
+	ecshop表结构说明:http://www.ecshop119.com/ecshopjc-853.html
+	b1.简单查询
+		语法:select 列 from 表 where 条件;
+		select后面from前面是和列相关的，where条件是和行相关的
+		查询ecs_goods表中所有数据
+			* 代表所有的列,根据实际情况进行使用
+			select * from ecs_goods;
+		查询ecs_goods表中满足商品名称是智能相机的所有数据
+			select * from ecs_goods where goods_name='智能相机';
+		查询ecs_goods表中所有的商品名称和本店售价的数据
+			select  goods_name,shop_price  from  ecs_goods;
+		查询ecs_goods表中商品名称是智能相机的本店售价
+			select shop_price from ecs_goods where goods_name='智能相机';
+	b2.where条件
+		1>比较
+			>
+			<
+			=
+			>=
+			<=
+			!=
+			<>
+			查询ecs_goods表中本店售价低于300的所有商品的名称
+			select goods_name from ecs_goods where shop_price<300;
+			查询ecs_goods表中商品名称不是智能相机的所有数据
+			select * from ecs_goods where goods_name !='智能相机';
+			select * from ecs_goods where goods_name <>'智能相机';
+		2>关系
+			and   同时满足
+			or    满足一个条件即可
+			not   不满足条件
+			查询ecs_goods表中本店售价高于500并且低于700的所有信息
+			select * from ecs_goods where shop_price>500 and shop_price<700;
+			查询ecs_goods表中商品名称为KD876或者商品名称为诺基亚的所有信息
+			select * from ecs_goods where goods_name='KD876' or goods_name='诺基亚';
+		3>区间
+			范围，包括两个端点,小在前，大在后
+			between...and...
+			查询ecs_goods表中本店售价范围1000和2000之间的所有信息
+			select  * from ecs_goods where shop_price>=1000 and shop_price<=2000;
+			select * from ecs_goods where shop_price between 1000 and 2000;
+			
+
+
+
+
+
+		4>空值
+		5>模糊
+		6>in
+
+
+
+
+
+
+
+补充:mysql和sql的区别
+mysql:数据库软件
+sql：操作数据库的语言
