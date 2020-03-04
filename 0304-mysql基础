@@ -104,8 +104,65 @@ b.简单查询
 			where g.cat_id=c.cat_id
 			and c.cat_name='3G手机';
 
+	练习--1.jpg
+	1.select * from test1 where department='计算机系' and place='北京';
+	2.update test1 set department='信息学院' where department='计算机系';
+	3.select  t1.no,t1.name,t2.grade,t2.courses 
+	from test1 t1,test2 t2
+	where t1.no=t2.no
+	and t2.grade>=75;
+	练习--2.jpg
+	1.select  s.name from student s,achievement a
+	  where s.id=a.id
+	  and a.mark>85;
+	2.select count(id) from achievement where mark>=90;
+	3.insert into achievement values(7,80);
+	4.update achievement set mark=87 where id=3;
+	5.delete from student where name='Betty';
+	  delete from achievement where id=6;
+	练习--4.jpg
+	1.select s#,grade from sc where c#='C2';
+	2.select sname from s where sname like 'D%';
+	3.
+	select s.s#,s.sname from s,sc,c
+	where s.s#=sc.s#
+	and sc.c#=c.c#
+	and c.cname='Maths';
+	4.
+	select s# from sc where c#='C2' or c#='C4';
+
+3.导入sakila数据库(mysql的备份恢复中的恢复数据)
+	a.官网下载sakila数据库
+		https://dev.mysql.com/doc/sakila/en/
+		https://dev.mysql.com/doc/sakila/en/sakila-installation.html
+	b.解压压缩文件sakila-db.zip
+	c.进入到解压后的文件夹，在文件夹中打开命令提示符
+	d.登陆mysql数据库
+		mysql -u root -p
+	e.导入表结构 sakila-schema.sql
+		source sakila-schema.sql;
+	f.导入数据 sakila-data.sql
+		source sakila-data.sql;
 
 
+
+
+
+
+英文单词
+and       和，而且
+or        或者
+not       不是，非
+between   在...之间
+like      像
+null      无效，无价值
+in        在...里面
+inner     内部
+join      加入
+unknown   未知
+data     数据
+schema   原理、图解
+installation 安装
 
 
 
