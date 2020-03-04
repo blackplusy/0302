@@ -5,7 +5,7 @@ a.mysql的查询分类
 	分组查询(归类)
 	子查询(一条SQL语句的执行依赖于另外一条SQL语句的执行)
 b.简单查询
-	ecshop表结构说明:http://www.ecshop119.com/ecshopjc-853.html
+	ecshop表结构说明:http://www.ecshop119.com/ecshopjc-853.html(ecs_goods)
 	b1.简单查询
 		语法:select 列 from 表 where 条件;
 		select后面from前面是和列相关的，where条件是和行相关的
@@ -65,6 +65,56 @@ b.简单查询
 			在...里面,或者的关系
 			查询ecs_goods表中商品名称为KD876或者商品名称为诺基亚的所有信息
 			select * from ecs_goods where goods_name in ('KD876','诺基亚');
+
+
+2.多表查询
+	当一张表无法满足条件时候使用多张表
+	a.笛卡尔积
+	两张表不做任何关联产生的数据,会导致无效数据增加，数据量成倍增加，为了避免产生此类情况，使用内联查询、左联查询、右联查询
+	ecshop表结构说明:http://www.ecshop119.com/ecshopjc-853.html(ecs_category)
+	select * from ecs_goods;
+	select * from ecs_category;
+	select * from ecs_goods,ecs_category;
+	b.内联查询
+	语法:
+	select 列 from 表1,表2 where 表1.列=表2.列;
+	select 列 from 表1 inner join 表2 on   表1.列=表2.列;
+	关联列判断方法
+		1.名字一致
+		2.作用一致
+		3.主外键关系
+	需求:查询商品名称是KD876的分类名称
+		1.分析列   商品名称  分类名称
+		2.分析列对应的表  goods_name(ecs_goods)  cat_name(ecs_category)
+		3.关联表
+			select * from ecs_goods,ecs_category
+			where ecs_goods.cat_id=ecs_category.cat_id;
+		4.过滤
+			select cat_name from ecs_goods,ecs_category
+			where ecs_goods.cat_id=ecs_category.cat_id
+			and goods_name='KD876';
+	需求:查询商品分类名称是3G的手机的所有商品名称,分类id
+		1.分析列  分类名称  商品名称
+		2.分析列对应的表  ecs_goods   ecs_category
+		3.关联
+			select * from ecs_goods g,ecs_category c
+			where g.cat_id=c.cat_id;
+		4.过滤
+			select g.goods_name from ecs_goods g,ecs_category c
+			where g.cat_id=c.cat_id
+			and c.cat_name='3G手机';
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
