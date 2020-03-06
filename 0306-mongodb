@@ -1,0 +1,91 @@
+1.练习讲解
+	3.png
+	a.	select  * from dt_pay where salary>(select  avg(salary) from dt_pay);
+	b.  select * from dt_pay;
+	c.  truncate table dt_pay;
+	4.png
+	1>
+		select xm,zkzh from tb_student where score>0 and score<5;
+		select * from tb_student where xm='张三' and score=5;
+	2>
+		select x.姓名,c.成绩表 from 学生表 x,成绩表 c
+		where x.准考证号=c.准考证号
+		and x.年龄 between 20 and 35
+		order by x.准考证号 desc;
+	2.png
+		select count(*) from table1 t1,table2 t2
+		where t1.学生id=t2.学生id;
+
+		select t2.家庭住址 from table1 t1,table2 t2
+		where t1.学生id=t2.学生id
+		and t1.姓名 like '张'
+		and t1.性别='女';
+2.mongodb
+	关系型数据库
+		oracle
+		mysql
+		sqlserver
+	非关系型数据库
+		mongodb
+		redis
+	a.mongodb的软件安装
+		1>官方下载软件
+			注意:操作系统、位数
+				x86 i386 i686  32位操作系统
+				x64   x86_64   64位操作系统
+		2>软件的安装和部署
+			a.解压压缩包
+			b.设置环境变量
+				计算机--属性--高级--环境变量--系统变量--Path中添加mongodb的bin的路径
+	b.mongodb的服务(命令提示符)
+		mongo     mongodb的客户端服务
+		mongod    mongodb的服务端服务
+		1>启动服务
+			mongod --dbpath d:\data
+			mongod --dbpath d:\data --logpath d:\data\mongo.log
+			--dbpath  数据存放路径
+			--logpath 日志存放位置
+		2>检查服务和端口
+			mongodb的主服务 mongod
+				win+r--cmd--tasklist | find "mongod"
+			mongodb的端口   27017
+				win+r--cmd--netstat -an | find "27017"
+			127.0.0.1=localhost=电脑本机
+	c.mongodb的登陆
+		mongo
+			登陆本地test数据库
+		mongo 127.0.0.1/admin
+			登陆IP为127.0.0.1的admin数据库
+		mongo 127.0.0.1:27017/admin
+			登陆IP为127.0.0.1的端口为27017的admin数据库
+	d.常用命令
+		mongodb数据库是由集合组成
+		mongodb的集合是由文档组成
+		mysql    mongodb
+		数据库     数据库
+		 表		    集合
+		 数据       文档
+	    db   查看当前数据库的名字
+	    show databases
+	    show dbs
+	   		查看当前有哪些数据库
+	    use admin
+	   		数据库切换为admin
+	    show tables
+	    show collections
+	   		查看当前数据库中有哪些集合
+	   	db.system.version.find()
+	   		查看集合system.version中所有的文档
+
+
+
+
+
+
+
+
+
+
+
+community  社区
+enterprise 企业
