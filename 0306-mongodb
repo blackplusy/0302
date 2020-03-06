@@ -76,8 +76,33 @@
 	   		查看当前数据库中有哪些集合
 	   	db.system.version.find()
 	   		查看集合system.version中所有的文档
-
-
+	e.CURD(增删改查)
+		新增文档
+			db.集合.insert(文档)
+			db.xiyouji.insert({name:'8jie',age:30})
+		查看文档
+			db.集合.find(查询表达式)
+			db.xiyouji.find({jingli:'eat'})
+		更新文档
+			db.集合.update(查询表达式,修改条件,多行)
+			db.xiyouji.update({jingli:'eat'},{$set:{age:100}})
+		删除文档
+			db.集合.remove(查询表达式)
+			db.xiyouji.remove({age:100})
+	f.文档的新增
+		新增普通文档
+			db.xiyouji.insert({name:'tangsir'})
+		新增文档指定_id
+			db.xiyouji.insert({_id:0,name:'tangsir',age:18})
+		新增内嵌文档
+			db.xiyouji.insert({name:'5kong',jingli:{kill:100,hit:3}})
+		新增多个文档
+			db.xiyouji.insert([{name:'nezha'},{name:'redhair'},{name:'2dog'}])
+	g.文档的删除
+		删除指定文档
+			db.xiyouji.remove({name:'tangsir'})
+		删除所有文档
+			db.xiyouji.remove({})
 
 
 
