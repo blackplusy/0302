@@ -83,7 +83,7 @@
 		查看文档
 			db.集合.find(查询表达式)
 			db.xiyouji.find({jingli:'eat'})
-		更新文档
+		更新(修改)文档
 			db.集合.update(查询表达式,修改条件,多行)
 			db.xiyouji.update({jingli:'eat'},{$set:{age:100}})
 		删除文档
@@ -104,6 +104,30 @@
 		删除所有文档
 			db.xiyouji.remove({})
 
+	h.文档的修改
+		1>修改文档
+			$set
+			db.xiyouji.update({name:'5kong'},{$set:{age:999}})
+		2>覆盖文档
+			db.xiyouji.update({name:'shasir'},{age:10})
+		3>自增
+			$inc  正数，增加，负数减少
+			db.xiyouji.update({},{$inc:{age:10}})
+		4>重命名
+			$rename
+			 db.xiyouji.update({name:'5kong'},{$rename:{'age':'nianling'}})
+		5>修改多行
+			db.xiyouji.update({name:'shasir'},{$set:{name:'gaga'}},{multi:true})
+
+	i.文档的查询
+		查询所有文档
+			db.xiyouji.find()
+		查询指定文档
+			db.xiyouji.find({name:'gaga'})
+		查询指定属性
+			db.xiyouji.find({},{_id:0,name:1})
+		查询指定文档的指定属性
+			db.xiyouji.find({name:'5kong'},{_id:0,nianling:1})
 
 
 
