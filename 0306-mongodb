@@ -128,6 +128,55 @@
 			db.xiyouji.find({},{_id:0,name:1})
 		查询指定文档的指定属性
 			db.xiyouji.find({name:'5kong'},{_id:0,nianling:1})
+	j.查询表达式
+		https://docs.mongodb.com/manual/reference/operator/query/#query-selectors
+		1>比较
+			$gt     大于
+			$lt     小于
+			$gte    大于等于
+			$lte    小于等于
+			$ne     不等于
+			db.xiyouji.find({age:{$gt:40}})
+			db.xiyouji.find({name:{$ne:'gaga'}})
+		2.关系
+			$and    同时满足
+			$or     满足一个即可
+			$not    不满足
+			db.xiyouji.find({$and:[{age:{$lt:100}},{name:'yudi'}]})
+			db.xiyouji.find({$or:[{name:'tai2'},{name:'5kong'}]})
+		3.存在性
+			$exists
+			db.xiyouji.find({age:{$exists:1}})
+		4.数据类型
+			$type文件类型
+			1.数字
+			2.字符串
+			3.对象
+			4.数组
+			5.二进制数据
+			7.对象id
+			8.布尔
+			9.日期
+			10.空值
+			db.xiyouji.find({age:{$type:2}})
+		5.再...里面
+			$in
+			db.xiyouji.find({name:{$in:['niumo','tai2']}})
+		6.正则
+			$regex
+			包含g
+			db.xiyouji.find({name:{$regex:/g/}})
+			以g开头
+			db.xiyouji.find({name:{$regex:/^g/}})
+			以n结尾
+			db.xiyouji.find({name:{$regex:/n$/}})
+
+
+
+
+
+
+
 
 
 
