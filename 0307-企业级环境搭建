@@ -139,7 +139,49 @@ insert into s(name,price) values('nokia',500);
 				b.执行shutdown.bat
 				c.执行startup.bat
 			9.访问localhost:8080/tenorder
-			
+	c.自动化测试的开发环境搭建
+		web自动化测试
+			python+selenium
+			python+robot
+			1.准备
+				a.python安装包
+					https://www.python.org/downloads/release/python-380/
+					补充:软件版本双数是稳定版本,单数是测试版本
+					add python to path
+					命令提示符中输入python
+				b.pycharm安装包(python开发的IDE工具)
+					https://www.jetbrains.com/pycharm/download/
+					建议下载社区版
+					傻瓜安装
+				c.chrome浏览器
+				d.chrome浏览器驱动
+					浏览器的版本和驱动的版本一定要对应
+					建议:http://npm.taobao.org/mirrors/chromedriver/
+					chrome浏览器的版本:设置--帮助   80.0.3987.132
+					下载对应驱动后必须把驱动文件放入python的安装路径下面
+				e.安装selenium框架
+					命令提示符中输入pip install selenium
+
+				f.测试
+					新建一个.py结尾的文件，文件内容
+					from selenium import webdriver
+					br=webdriver.Chrome()
+					br.get("https://www.baidu.com")
+					在命令提示符中输入python 文件名
+				g.测试文件2
+					from selenium import webdriver
+					import time
+					br=webdriver.Chrome()
+					br.get("http://localhost/ecshop/index.php")
+
+					time.sleep(2)
+					br.find_element_by_xpath('//input[@name="keywords"]').send_keys("kd876")
+					br.find_element_by_xpath('//input[@name="imageField"]').click()
+
+
+
+
+
 
 
 
