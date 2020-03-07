@@ -1,0 +1,104 @@
+一、简答
+1.
+	root    3306
+2.
+	数字   字符   日期
+3.
+	sqlyog  workbench dbeaver
+4.
+	SQL:管理数据库的语言
+	mysql:数据库软件
+5.
+	insert update delete
+6.
+	不用排序无法查询
+7.
+	oracle
+	mysql
+	sqlserver
+8.
+	where    分组前过滤，不能直接跟分组函数
+	having   分组后过滤，可以直接跟分组函数
+数据库设计
+1.
+create table s(
+	sid  int,
+	name char(20),
+	price int
+);
+2.
+insert into s(name,price) values('nokia',500);
+3.
+	分析列:客户名称、商品名称
+	分析表:k         s
+	关联:
+	select s.name from s,d,k
+	where s.sid=d.sid
+	and d.kid=k.kid
+	and k.name like 'K%';
+4.
+	查询s表中最高商品价格
+	select max(price) from s;
+	查询s表中满足条件的sid
+	select sid from s where price=(select max(price) from s);
+	查询d表中sid为上面订单id
+	select id from d where sid in (select sid from s where price=(select max(price) from s))
+
+5.
+	select k.name,count(d.id) from d,k
+	where d.kid=k.kid
+	group by k.name;
+
+6.
+	select k.name,count(d.id) from d,k
+	where d.kid=k.kid
+	group by k.name
+	having count(d,id)>5;
+7.
+	delete from d where kid=(select kid from k where name='scott');
+	delete from k where name='scott';
+8.
+	select * from k limit 9,11;
+
+========================================================================
+http://192.168.7.55:88/java%E7%9B%B8%E5%85%B3
+1.企业级项目环境搭建
+	a.ecshop(php)
+	b.tenorder(java)
+		jdk+tomcat+mysql
+		java:
+			oracle java
+			open   java
+		1>下载和安装jdk
+			下载:oracle官网
+				11>操作系统类型	
+					linux
+					unix
+					windows
+				12>操作系统位数
+					x86  i686 i386   32位        
+					x64  x86_64      64位
+				32位软件安装在32位系统中可以正常运行
+				32位软件安装在64位系统中不一定能正常运行
+				64位软件安装在64位系统中可以正常运行
+				64位软件安装在32位系统中不能正常运行
+				注意:下载的软件版本必须和系统对应
+			jdk的配置
+				jdk:java的开发环境
+				jre:java的运行环境
+				设置环境变量
+				1.系统变量中新建变量JAVA_HOME
+					计算机--属性--高级--环境变量--系统变量--新建变量 JAVA_HOME 值就是java的安装路径
+				2.系统变量中Path中添加
+					;%JAVA_HOME%\bin;%JAVA_HOME%\jre\bin
+					确定X3
+				3.测试java环境是否安装配置正确
+					命令提示符中输入
+					java
+					javac
+		2>下载安装tomcat
+			注意:tomcat一定要注意版本和开发一致
+			
+
+
+
