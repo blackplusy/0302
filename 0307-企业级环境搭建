@@ -61,7 +61,6 @@ insert into s(name,price) values('nokia',500);
 	select * from k limit 9,11;
 
 ========================================================================
-http://192.168.7.55:88/java%E7%9B%B8%E5%85%B3
 1.企业级项目环境搭建
 	a.ecshop(php)
 	b.tenorder(java)
@@ -91,6 +90,8 @@ http://192.168.7.55:88/java%E7%9B%B8%E5%85%B3
 					计算机--属性--高级--环境变量--系统变量--新建变量 JAVA_HOME 值就是java的安装路径
 				2.系统变量中Path中添加
 					;%JAVA_HOME%\bin;%JAVA_HOME%\jre\bin
+					 (也可以更换
+					C:\Program Files\Java\jdk1.8.0_112\bin;C:\Program Files\Java\jdk1.8.0_112\jre\bin)
 					确定X3
 				3.测试java环境是否安装配置正确
 					命令提示符中输入
@@ -98,7 +99,57 @@ http://192.168.7.55:88/java%E7%9B%B8%E5%85%B3
 					javac
 		2>下载安装tomcat
 			注意:tomcat一定要注意版本和开发一致
+			1.解压tomcat压缩包
+			2.tomcat文件夹简介
+				bin  存放命令
+				conf 存放配置
+				lib  存放库文件
+				logs 存放日志
+				temp 存放临时文件
+				webapps 存放web项目位置
+			3.启动tomcat服务器
+				31>进入到bin文件夹
+				32>启动startup.bat(双击)
+					如果看到Server startup说明tomcat服务已经启动
+			4.检查tomcat是否正常运行
+				tomcat服务是由java编写
+					tasklist | find "java"
+				tomcat端口8080
+					netstat -an | find  "8080"
+				浏览器中输入localhost:8080,如果出现tomcat欢迎页面则说明已经安装部署成功
+		3>tenorder项目环境部署
+			1.安装配置好jdk
+			2.安装配置好tomcat
+			3.安装配置好mysql(phpstudy)
+			4.删除tomcat文件夹下webapps中所有文件
+			5.解压tenorder压缩包到tomcat的webapps中
+			6.导入数据库
+				a.命令提示符进入到tenorder.sql所在文件夹
+				b.登陆mysql
+					mysql -u root -p
+				c.创建数据库
+					create database ten;
+				d.数据库切换到ten数据库中
+					use ten;
+				e.导入tenorder.sql
+					source tenorder.sql;
+			7.根据提示修改数据库信息
+			8.重启tomcat服务器
+				a.进入到tomcat的bin文件夹中
+				b.执行shutdown.bat
+				c.执行startup.bat
+			9.访问localhost:8080/tenorder
 			
+
+
+
+
+
+
+
+
+
+
 
 
 
