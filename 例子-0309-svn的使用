@@ -1,0 +1,15 @@
+SVN:
+1.访问SVN的方法
+	a.下载软件
+		https://tortoisesvn.net/downloads.html
+	b.下载文件(从服务器上把文件下载到电脑上)
+		b1.桌面--右键--小乌龟(Totorise SVN)--repo browser--输入svn的服务器地址
+		(http://192.168.7.247:82/svn/0309)--输入用户名(test)--输入密码(test)--拖拽
+		b2.新建文件夹--右键--svn checkout--输入您要下载的文件夹
+	c.上传文件(从电脑上到服务器上)
+		c1.拖拽
+		c2.把文件放入到svn的数据的文件夹中，右键文件夹(SVN commit)--选择提交文件(打勾)
+
+上传文件命名规范
+名字-练习.html
+黑哥-锚点练习.html    到指定文件夹
