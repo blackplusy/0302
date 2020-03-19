@@ -58,3 +58,44 @@
 			from selenium import webdriver
 			br=webdriver.Chrome()
 			br.get("https://www.baidu.com")
+		注意:
+			1.pip 命令无法正常使用
+				a.安装python时候没有选择add python to path
+					a1.把scripts文件夹
+						C:\Users\Administrator\AppData\Local\Programs\Python\Python36\Scripts
+						添加到环境变量中
+					a2.进入到scripts文件夹执行pip
+				b.检查电脑中有几个python版本
+					python 37
+					python 38
+					python 36
+					命令提示符中输入pip install selenium,可以安装但是代码运行出问题，可能是版本导致
+					b1.检查当前python运行的版本
+						命令提示符(win+r--cmd--python)--可以查看出来当前安装selenium库的python版本
+						pycharm设置--python interpreter设置为上面查询出来的python版本
+					b2.卸载其他版本python
+8.selenium常见的元素定位方法
+	1.查看页面元素
+		浏览器中F12功能(开发者工具)，点击元素右键检查，查看对应元素的前端代码
+	2.对元素常见操作
+		click()         点击
+		clear()         清空
+		send_keys()     发送内容
+	3.id定位
+		通过前端标签中的id属性进行元素定位
+	4.name定位
+		通过前端标签中的name属性进行元素定位
+	5.class定位
+	6.tag定位
+		html通过tag来定义功能，input是输入，table是表格
+		工作中使用较少，很难通过tag区分不同元素
+	7.link定位
+		专门定位文本链接，比如百度新闻等等
+	8.partial link
+		超链接文本会非常长，全部输入浪费资源，这种方式也叫做模糊匹配
+	9.xpath定位
+		理想状态中页面中都会有id、name、class、超文本链接等等，实际情况并不是，属性相同，刷新页面后属性值都会变化
+	10.css定位
+		相对xpath简单，速度快
+		
+
