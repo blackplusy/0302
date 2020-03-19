@@ -97,5 +97,26 @@
 		理想状态中页面中都会有id、name、class、超文本链接等等，实际情况并不是，属性相同，刷新页面后属性值都会变化
 	10.css定位
 		相对xpath简单，速度快
-		
+
+9.ecshop登陆后下单支付
+	1.注册用户
+	2.用已经注册的用户登陆ecshop网店，下单支付
+10.selenium对浏览器的操作
+	a.控制浏览器窗口大小
+		通过set_window_size()来设置浏览器窗口大小
+	b.控制浏览器最大化
+		通过maximize_window()让浏览器最大化
+	c.控制浏览器最小化
+		通过minimize_window()让浏览器最小化
+	d.浏览器的前进和后退
+		前进 forward()
+		后退 back()
+	e.浏览器的刷新
+		刷新当前页面 refresh()
+	f.窗口截屏
+		get_screenshot_as_file，截屏一般都是.png结尾的文件
+	g.浏览器的退出
+		quit()
+	h.切换浏览器的句柄(tab)
+
 
