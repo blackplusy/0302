@@ -74,3 +74,27 @@
 			and 同时满足条件
 			or  满足一个条件即可
 			//a[@class='mnav' and @name='tj_trnews']
+5.框架切换
+	a.切换到frame中(switch_to.frame(参数))
+		参数可以用来定位frame，传入id，name等
+		from xxx import xxx
+		br=webxxxxx
+		br.switch_to.frame(frame1)
+	b.从frame切换到主文档(switch_to.default_content())
+		切换到frame中，不能继续操作主文档中的元素，如果想进行操作，需要切回到原来文档
+		from xxx import xxx
+		br=webxxxxx
+		br.switch_to.default_content()
+	c.嵌套frame的操作
+		开发时候会出现嵌套的frame
+			从主文档切换到frame2，一层一层进入
+			br.switch_to.frame("frame1")
+			br.switch_to.frame("frame2")
+			子frame切回父frame
+			相当于后退方法，随意切换
+			br.switch_to.parent_frame() 
+			如果当前已经是主文档，无效
+6.selenium ide
+	a.安装selenium ide插件
+	
+
