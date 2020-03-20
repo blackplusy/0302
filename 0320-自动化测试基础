@@ -46,4 +46,31 @@
 			find_element_by_css_selector("input[class$='bg']")
 			^代表以...开头
 			$代表以...结尾
-
+4.xpath定位
+	xpath定位：https://www.w3school.com.cn/xpath/index.asp
+	针对于xml的路径语言，通过元素的路径来找到这个元素
+	a.工具
+		火狐：firebug
+		F12
+	b.用法
+		/ 	 绝对路径，从根节点选取元素
+		//	 相对路径，所有子结点中搜索对应元素
+		@    选取属性
+		.    当前节点
+		..   当前节点的父节点
+		注意:通过浏览器的F12的console可以进行调试$x()
+		b1.xpath支持id、class、name定位
+			//*[@id='kw']
+			//*[@name='wd']
+			//*[@class='s_ipt']
+		b2.如果没有id、class、name属性，xpath指定属性定位
+			//*[@autocomplete='off']
+		b3.通过层级元素定位
+			1>通过相对路径定位元素
+				//a[@class='mnav'][1]
+			2>通过绝对路径定位元素
+				/html/body/div[1]/div[1]
+		b4.xpath运算符
+			and 同时满足条件
+			or  满足一个条件即可
+			//a[@class='mnav' and @name='tj_trnews']
