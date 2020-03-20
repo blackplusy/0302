@@ -1,6 +1,11 @@
 # 0302
-https://mubu.com/doc/pUN4L9sX70
-https://mubu.com/doc/73I8vd554w
-https://mubu.com/doc/CBggay9lI0
-https://mubu.com/doc/gtT-SbXH90
-https://mubu.com/doc/yQ2MSy9AC0
+
+## 月公开课
+
+### 第一周 数据库基础
+
+### 第二周 前端基础
+
+### 第三周 自动化测试基础
+
+### 第四周 操作系统基础
