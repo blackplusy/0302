@@ -166,7 +166,17 @@ tel:     18028768679
 		win: 	win+r--cmd--ping linux的ip
 		linux： ping win的IP
 
-
+11.忘记密码怎么办
+	a.重启
+	b.开始菜单按e
+	c.启动菜单按e
+	d.选择kernelxxxx 按e
+	e.后面增加空格 1
+	f.回车
+	g.按b
+	h.输入命令passwd(提示你输入)
+	i.exit
+	
 
 
 
