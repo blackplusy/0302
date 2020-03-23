@@ -120,6 +120,57 @@ tel:     18028768679
 		cd ~
 			目录切换到家目录
 
+10.linux中的网络操作
+	a.linux的网络设置
+		交换机通信条件:
+			1>硬件正常
+			2>IP必须同一个网段
+		a1.查看win里面的IP
+			win+r--cmd--ipconfig
+			192.168.7.55 
+		a2.搜索一个和上面搜索出IP同一网段的IP
+			win+r--cmd--ping 192.168.7.44
+			如果出现网络不可达，无法访问说明网路中没有人使用该IP，可以用于linux中的设置
+		a3.linux中查看IP的方式
+			ifconfig             
+				查看当前已经激活的网卡的网络设置
+			ifconfig eth0
+				查看eth0网卡的网卡信息
+			eth0是linux的第一块网卡
+			lo是本地回环网卡
+		a4.设置IP
+			终端--setup--网络设置--edit devices--eth0
+				名称、设备不要修改
+				取消DHCP(空格)
+
+			补充：获取IP地址方式
+				DHCP(动态分配IP地址)
+				STATIC(静态设置)
+				static ip(输入IP)
+				netmask  (输入子网掩码)[255.255.254.0]
+				default gateway 192.168.6.1
+			--ok
+			--save
+			--save&quit
+			--退出
+			--service network restart
+	b.虚拟机的网络设置
+		右键虚拟机标签--设置--网络适配器--桥接、复制物理网络连接状态--确定
+		桥接           
+			可以和局域网中其他主机进行通信
+		仅主机
+			客户机和宿主机的私有通道，无法和局域网中其他主机进行通信
+		网络地址转换
+			通过IP地址转换共享上网，无法和局域网中其他主机进行通信
+	c.测试
+		win: 	win+r--cmd--ping linux的ip
+		linux： ping win的IP
+
+
+
+
+
+
 
 
 
