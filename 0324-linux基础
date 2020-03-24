@@ -1,0 +1,77 @@
+基础命令
+who
+whoami
+pwd
+ls
+cd
+查看帮助
+man
+info
+目录操作
+mkdir
+cp
+mv
+rm
+service
+ping
+setup
+ifconfig
+=============
+1.文件操作
+	a.文件操作
+		1>创建
+			11>
+			touch a
+				当前目录下创建空文件a
+			touch b /opt/c
+				当前目录下创建空文件并且再/opt里面创建空文件c
+			touch "d  e"
+				当前目录下创建空文件d  e
+			12>
+			echo 打印，输出
+			重定向,通常和echo一起使用
+			>    覆盖:删除文档中原有内容，放入新内容，如果没有该文件自动创建
+				echo heygor>zhenshuai 
+					打印heygor到zhenshuai文件中
+			>>   追加：在文件内容最后一行后面增加新内容(日志),如果没有该文件自动创建
+				echo zhenshuai >> heygor
+				 	追加zhenshuai到heygor文件中
+			1>	输出正确信息到文件中
+				ls /opt/ test 1>1.log
+			2>	输出错误信息到文件中
+				ls /opt/ test 2>2.log
+			&>	所有信息输出到文件中
+				ls /opt/ test &>5.log
+			13>vi编辑器
+		2>删除
+			rm 1.log
+				删除当前目录下的1.log文件
+			rm -f 5.log
+				强制删除当前目录下5.log文件
+			rm -rf *
+				强制删除当前目录下所有文件
+		3>复制
+			 cp *.log A
+			 	复制当前目录下.log结尾的所有文件到A目录中(A目录存在)
+			 cp 2.log 6.log
+			 	复制2.log到当前目录下并且命名为6.log(6.log目录不存在)
+		4>剪切
+			mv heygor a b A
+				剪切当前目录下a b heygor文件到A目录中(A目录存在)
+			mv 6.log 7.log
+				重命名当前目录下的6.log为7.log(7.log目录不存在)
+		5>查看
+			cat   不分页显示文件内容
+				cat install.log
+			less  分页显示文件内容，可以向上、向下翻页，按q退出
+				less install.log
+			more  分页显示文件内容，只能向下翻页，按q退出
+				more install.log
+			head  文件前几行
+				head -3 install.log
+			tail  文件的后几行
+				tail -4 install.log
+			vi
+		6>修改
+	b.vi编辑器
+
