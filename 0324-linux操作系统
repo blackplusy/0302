@@ -14,6 +14,7 @@ mv
 rm
 service
 ping
+
 setup
 ifconfig
 =============
@@ -170,7 +171,86 @@ ifconfig
 		 init 5  进入图形接面
 		 init 6  重启
 
+3.用户和权限
+	a.用户
+		a1.创建用户
+			/etc/passwd  用户配置文件
+			/etc/shadow  用户密码配置文件
+			/etc/group   组信息配置文件
+			useradd simon 创建用户simon
+			passwd  simon 给simon用户设置密码	
+		a2.修改用户(usermod)
+			锁定用户
+			usermod -L simon 锁定用户simon
+			解锁用户
+			usermod -U simon 解锁用户simon
+		a3.删除用户
+			userdel -r simon  删除用户simon
+	b.权限
+		a.查看权限
+			[root@heygor ~]# ll install.log
+			-rw-r--r-- 1 root root 35853 03-24 19:46 install.log
+		b.文件属性信息
+			1:文件类型
+				- 普通文件
+				d 目录
+			2-10:文件的权限
+			11:文件节点
+			12:文件的拥有者
+			13:文件的拥有组
+			14:文件大小
+			15:最后修改时间
+			16:文件名字
+		c.常见权限
+			r:读
+				文件:查看文件内容
+				目录:可以列表显示名字
+			w:写
+				文件:修改文件内容
+				目录:目录种创建、重命名、删除文件
+			x:执行
+				文件:可执行，二进制文件或者脚本文件
+				目录:可以进入
+		d.权限分组
+			rw-      r--     r--
+			拥有者   拥有组  其他人
+		e.系统判断权限过程
+			id 用户  查看组信息
+			id root  查看root用户的组信息
+			1.判断用户是否为文件拥有者，如果是的话赋予拥有者权限
+			2.如果不是，判断是否为文件的拥有组成员，如果是，赋予拥有组权限
+			3.如果都不是，那么赋予其他人权限
 
-
+		f.修改权限
+			chmod(直接修改权限)
+				字符方式
+					u  拥有者
+					g  拥有组
+					o  其他人
+					a  所有人
+					chmod u+x install.log
+						拥有者增加执行权限
+					chmod a-x install.log
+						所有人取消执行权限
+					chmod g+x,o+x install.log
+						拥有者和其他人增加执行权限
+				数字方式
+					r:4
+					w:2
+					x:1
+					-:0
+					rw- r-- r--
+					4+2+0  4+0+0 4+0+0===644
+					chmod 777 install.log
+						所有用户拥有读写执行权限
+					chmod 000 install.log
+						所有用户没有任何权限
+			chown(通过修改文件属主来修改)
+				chown hawk install.log
+					修改文件拥有者为hawk
+				chown :bin install.log
+					修改文件拥有组为bin
+				chown root:root install.log
+					修改文件的拥有者和拥有组为root
 
 
