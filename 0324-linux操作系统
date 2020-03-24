@@ -220,7 +220,6 @@ ifconfig
 			1.判断用户是否为文件拥有者，如果是的话赋予拥有者权限
 			2.如果不是，判断是否为文件的拥有组成员，如果是，赋予拥有组权限
 			3.如果都不是，那么赋予其他人权限
-
 		f.修改权限
 			chmod(直接修改权限)
 				字符方式
@@ -252,5 +251,38 @@ ifconfig
 					修改文件拥有组为bin
 				chown root:root install.log
 					修改文件的拥有者和拥有组为root
+4.包、压缩文件、压缩包
+	a.包文件
+	创建的包文件通常以.tar结尾
+		tar -cvf test.tar install.log* Desktop/
+			创建包文件test.tar打包内容install.log开头所有文件和Desktop目录
+		tar -tvf test.tar
+			查看包文件test.tar的文件内容
+		tar -xvf test.tar
+			解包test.tar文件到当前目录下
+		tar -xvf test.tar -C /opt/
+			解包test.tar到指定目录下(需要加-C)
+	b.压缩文件
+		du -sh 文件名 查看文件大小
+		gzip install.log
+			压缩文件install.log
+		gzip -l install.log.gz
+			查看文件的压缩属性信息
+		gzip -d install.log.gz
+			解压文件到当前目录下
+	c.压缩包
+		创建的文件通常是.tar.gz结尾或者.tgz结尾
+		先打包后压缩
+		tar -czvf test2.tgz install.log*
+			创建压缩包文件test2.tgz，压缩包内容为install.log开头的文件
+		tar -tzvf test2.tgz
+			查看压缩包文件test2.tgz内容
+		tar -xzvf test2.tgz
+			解压压缩包文件test2.tgz
+
+
+
+
+
 
 
