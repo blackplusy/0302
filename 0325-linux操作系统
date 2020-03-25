@@ -1,0 +1,109 @@
+who
+whoami
+pwd
+cd
+ls
+
+man
+info
+
+ping
+setup
+service
+ifconfig
+
+mkdir
+cp
+mv
+rm
+
+touch
+echo
+cat
+less
+more
+head
+tail
+vi
+
+useradd
+usermod
+userdel
+chmod
+chown
+id
+
+gzip
+tar
+=================================
+1.linux管理命令
+	top   查看系统资源
+		pid   进程id(标识进程)
+	ps -ef 查看当前系统运行的所有进程
+		ps -ef |grep tomcat    (查看tomcat进程是否正常运行)
+		ps -ef |grep httpd     (查看apache进程是否正常运行)
+		ps -ef |grep mysqld    (查看mysqld进程是否正常运行)
+		ps -ef| grep sshd      (远程链接linux的服务)
+	netstat -an 查看系统中开放的所有端口
+		常见端口
+			apache/nginx/iis   80
+			tomcat             8080
+			mysqld             3306
+			oracle             1521
+			sshd               22
+			netstat -an |grep 22  查看22号端口是否正常
+	free -m   查看内存使用情况
+	vmstat    监控系统资源
+	chkconfig 开机启动列表
+		chkconfig --list
+			查看开机启动列表
+		chkconfig --level 35 bluetooth off
+			运行级别3和5关闭蓝牙
+	mount
+		查看系统挂载情况
+	df -h
+		查看磁盘使用率	
+	init
+		init 0
+		init 3
+		init 5
+		init 6
+	ping
+		测试网络是否联通
+		ping www.baidu.com
+		ping 192.168.5.23
+	ifconfig
+		监控网络资源
+
+	kill -9  pid 暴力杀
+		 -15 pid 温柔杀
+2.搜索和管道
+	a.搜索
+		find    搜索文件
+			find /etc/ -name *.conf
+				搜索/etc目录下以conf结尾的文件	
+		locate  搜索文件
+			locate passwd
+				系统中搜索passwd文件
+		updatedb 刷新系统数据库
+		grep 	搜内容
+			grep root /etc/passwd
+				/etc/passwd文件中搜索内容root
+			grep ^r /etc/passwd
+				/etc/passwd文件中搜索r开头的内容
+			grep bash$ /etc/passwd
+				/etc/passwd文件中搜索bash结尾的内容
+			grep -v root /etc/passwd
+				/etc/passwd文件中搜索不含有root的内容
+	b.管道
+		前面的输出作为后面的输入
+			ls /etc/ | grep ^r|grep b$
+		查看文件低7行内容
+			 head -7 install.log |tail -1
+
+
+
+
+
+
+
