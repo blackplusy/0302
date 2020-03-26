@@ -114,7 +114,36 @@ c.安装部署ecshop(b/s)
 		用户名:    root
 		密码       
 		数据库名:   test
-		
+
+d.tenorder项目部署
+	open java
+	oracle java
+	1.安装配置jdk
+		jdk  java的开发环境
+		jre  java的运行环境
+		注意:
+			11>操作系统类型
+				uename -a  查看操作系统位数
+			12>操作系统位数
+				x86  i686 i386 32位
+				x64  x86_64    64位
+			13>把下载后的jdk压缩包传入linux中
+			14>解压jdk压缩包
+				tar -xzvf jdk-7u7-linux-i586.tar.gz
+			15>查看java版本信息
+				 java -version
+			16>设置环境变量
+				vim .bash_profile
+				在PATH和export中间添加
+				JAVA_HOME=/root/jdk
+				PATH=$JAVA_HOME/bin:$JAVA_HOME/jre/bin:$PATH
+			17>使环境变量生效
+				# source .bash_profile
+			18>查看java版本信息
+				 java -version
+
+
+
 
 
 
