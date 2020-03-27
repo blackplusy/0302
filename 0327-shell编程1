@@ -164,7 +164,10 @@ l.条件判断
 		不在线IP写入到log2中
 
 
-
+	2、
+	找到/var/www/html目录下的所有文件名字为index.html的文件，包括子目录里的。把他们集中复制一份放到/tmp/index目录中，文件名按找到的先后顺序更改，第一个找到的index.html命名为index.html.1 ，第二个找到的为index.html.2。如此类推。 find_index.sh
+	
+	注意： 必须使用cp 
 
 
 
