@@ -62,9 +62,49 @@ shell02
 			awk 'NR%2==0{print }' /etc/passwd
 
 
+a.终端设置
+
+1.当前用户为  	xxx
+2.当前IP为   	xxx
+3.当前主机名为 	xxx
+	
+b.系统情况报告
+1.cpu用户使用率超过80%(vmstat us对应数据)
+2.内存使用率超过80%(free)
+3.硬盘使用率超过80%(df)
+4.超过极限在所有终端报警(wall)
 
 
+=============================
+awk -F ":" 'BEGIN{ 处理文件前的代码块 }{ 处理文件过程中执行的代码块 }END{ 处理文件后执行的代码}' /etc/passwd
 
+a.输出顶部增加“come on baby”，输出最后添加“get out of my face”
+	 awk -F ":" 'BEGIN{ print "come on baby" }{ print }END{ print "et out "}' test
 
+b.打印最后一行的最后一列
+	awk -F ":" 'END { print $NF }' /etc/passwd
 
+c.打印文件所有字段总数
+	awk -F ":" 'BEGIN{ count=0 }{count+=NF}END{ print count }' /etc/passwd
+
+d.打印字段数大于4的总行数
+	awk -F ":" 'BEGIN{ count=0 }NF>4{ count++ }END{ print count }' /etc/passwd
+
+e.awk代码写入到独立的文件中
+	01.awk
+	BEGIN{
+	        FS=":"
+	        count=0
+	}
+	{
+	        if( NF>4 )
+	        {
+	                count++
+	        }
+	}
+	END{
+	        print count
+	}
+	awk -f 01.awk /etc/passwd
+f.awk的循环
 
