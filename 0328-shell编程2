@@ -106,5 +106,72 @@ e.awk代码写入到独立的文件中
 	        print count
 	}
 	awk -f 01.awk /etc/passwd
+f.awk函数调用
+	awk 有很多的内置函数
+		print("参数")    打印完毕后会自动换行
+		printf(参数列表)  格式化，定义格式，转义等
+			printf（"%d--%s\n",12,'name'）
+		 echo "we are fml "|awk '{printf("%d--%s\n",12,"simida")}'
+
 f.awk的循环
+	for (i=0;i<10;i++){
+		printf("%d",i)
+	}
+	02.awk
+	{
+        for(i=0;i<5;i++)
+        {
+                printf("%d",i)
+        }
+	}
+	END{
+	        #print("over")
+	        printf("%s","\n")
+	}
+	echo | awk -f 02.awk
+
+g.倒序排列所有字段
+test.txt
+
+1:2:3:4
+a:b:c:d:e:f
+
+处理之后
+4:3:2:1
+f:e:d:c:b:a
+	03.awk
+	BEGIN {
+	        FS=":"
+	}
+	{
+	        for(i=NF;i>0;i--)
+	        {
+	                if( i>1 ){
+	                        printf("%s:",$i)
+	                }
+	                else{
+	                        printf("%s\n",$i)
+	                }
+	        }
+	}
+	awk -f 03.awk ./test.txt
+
+==========================================================
+sed   字段编辑和字段替换
+1.删除指令d
+	删除所有行  				sed -e 'd' /etc/passwd
+	只删除第一行 				sed -e '1d' /etc/passwd
+	删除1到3行           	sed -e '1,3d' /etc/passwd
+	删除第1行和第3行      	sed -e '1d;3d' /etc/passwd
+
+	包含root关键字的行都删除  sed -e '/root/d' /etc/passwd
+	删除daemon开头的所有行    sed -e '/^daemon/d' /etc/passwd
+	删除一nologin结尾的行     sed -e '/nologin$/d' passwd
+	删除所有空行              sed -e '/^$/d' passwd
+	删除所有已#开头以及空行    sed -e '/^#/d;/^$/d' passwd
+	删除以daemon开头的行到以shudown结尾的行
+		sed -e '/^daemon/,/shutdown$/d' passwd
+		
+
+
 
