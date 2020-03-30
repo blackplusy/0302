@@ -22,6 +22,3 @@
 #### 2.SHELL编程基础
 #### 3.计算机基础
 
-https://mubu.com/doc/gtT-SbXH90
-
-https://mubu.com/doc/BADHGLPqQ0
